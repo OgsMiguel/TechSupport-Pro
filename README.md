@@ -1,170 +1,124 @@
-PrimeTech Support Services
-Documentación Técnica
-1. Información General
+# TechSupport Pro
 
-Nombre del Proyecto: TechSupport Pro
-Tecnología Principal: React
-Entorno de Desarrollo: Vite
-Objetivo: Gestión y visualización de activos tecnológicos.
+## Información General
 
-La aplicación permite administrar información de equipos como laptops, monitores y otros dispositivos asignados mediante una arquitectura basada en componentes.
+Nombre del Proyecto: TechSupport Pro  
+Estudiante: Miguel Nava  
+Fecha: Marzo 2026  
+Curso: Desarrollo Web  
 
-2. Tecnologías Utilizadas
+---
 
-React
+## Descripción del Proyecto
 
-JavaScript / TypeScript
+TechSupport Pro es una aplicación web desarrollada con React que permite gestionar y visualizar activos tecnológicos como laptops, monitores y otros dispositivos asignados dentro de una organización.
 
-Vite
+La aplicación está estructurada bajo una arquitectura basada en componentes, lo que permite dividir la interfaz en partes pequeñas, reutilizables y organizadas.
 
-HTML5
+---
 
-CSS / Tailwind CSS
+## Problema que Soluciona
 
-Node.js
+En muchas organizaciones la gestión de activos tecnológicos se realiza de forma manual o desorganizada, lo que dificulta el control y seguimiento de equipos asignados.
 
-3. Arquitectura del Proyecto
+Este sistema permite registrar, visualizar y administrar activos tecnológicos de manera estructurada y dinámica.
+
+---
+
+## Tecnologías Utilizadas
+
+- React  
+- JavaScript / TypeScript  
+- Vite  
+- HTML5  
+- CSS  
+- Tailwind CSS  
+- Node.js  
+- Git y GitHub  
+
+---
+
+## Arquitectura del Proyecto
 
 El proyecto sigue una arquitectura basada en componentes.
 
 Flujo de ejecución:
 
-index.html contiene el contenedor principal.
+1. index.html contiene el contenedor principal.
+2. main.tsx conecta React con el DOM.
+3. App.tsx organiza la aplicación.
+4. Los componentes renderizan la interfaz.
+5. El estado controla la información dinámica.
 
-main.tsx conecta React con el DOM.
+---
 
-App.tsx organiza la aplicación.
+## Estructura del Proyecto
 
-Los componentes renderizan la interfaz.
+TechSupport-Pro  
+│  
+├── public/  
+├── src/  
+│   ├── components/  
+│   ├── pages/  
+│   ├── App.tsx  
+│   └── main.tsx  
+│  
+└── README.md  
 
-4. Estructura del Proyecto
-TechSupport-Pro
-│
-├── public/                # Recursos estáticos
-├── src/
-│   ├── components/        # Componentes reutilizables
-│   ├── pages/             # Vistas principales
-│   ├── App.tsx            # Componente principal
-│   └── main.tsx           # Punto de entrada
-│
-└── README.md              # Documentación del proyecto
-5. Componentes
+---
 
-Un componente en React es una función que retorna JSX.
+## Funcionalidades
 
-function Header() {
-  return <h1>Gestión de Activos</h1>
-}
+1. Visualización de activos tecnológicos registrados.
+2. Renderizado dinámico utilizando map().
+3. Manejo de estado con useState.
+4. Formularios controlados.
+5. Comunicación entre componentes mediante props.
 
-Características:
+---
 
-Son reutilizables.
+## Capturas de Pantalla
 
-Permiten dividir la aplicación en partes pequeñas.
+### Página principal
+![Página principal](images/pagina1.png)
 
-Mejoran la organización del código.
+### Vista de activos
+![Vista de activos](images/pagina2.png)
 
-6. JSX
+### Formulario
+![Formulario](images/pagina3.png)
 
-JSX permite escribir HTML dentro de JavaScript.
+---
 
-<p>Equipo asignado: {activo}</p>
+## Cómo Ejecutar el Proyecto
 
-Las llaves {} permiten insertar código JavaScript.
+1. Clonar el repositorio  
+   git clone URL_DEL_REPOSITORIO  
 
-React transforma JSX en funciones internas.
+2. Entrar a la carpeta del proyecto  
+   cd TechSupport-Pro  
 
-7. Manejo de Estado (useState)
+3. Instalar dependencias  
+   npm install  
 
-El estado permite manejar información dinámica.
+4. Ejecutar el proyecto  
+   npm run dev  
 
-const [activos, setActivos] = useState([])
+5. Abrir en el navegador  
+   http://localhost:8080  
 
-activos almacena la información actual.
+---
 
-setActivos actualiza el estado.
+## Mejoras Futuras
 
-Cuando el estado cambia, React vuelve a renderizar el componente.
+- Implementar autenticación de usuarios.  
+- Conectar con una base de datos.  
+- Agregar filtros avanzados.  
+- Implementar roles de usuario.  
+- Mejorar el diseño responsive.  
 
-8. Props
+---
 
-Las props permiten enviar información entre componentes.
+## Conclusión
 
-<ActivoCard nombre="Laptop HP" />
-
-function ActivoCard({ nombre }) {
-  return <p>{nombre}</p>
-}
-
-Son de solo lectura.
-
-Permiten reutilizar componentes con distintos datos.
-
-9. Renderizado Dinámico
-
-React permite renderizar listas usando map().
-
-{activos.map((activo, index) => (
-  <ActivoCard key={index} nombre={activo.nombre} />
-))}
-
-map() recorre el arreglo.
-
-key permite identificar cada elemento.
-
-Optimiza el proceso de renderizado.
-
-10. Manejo de Eventos
-<button onClick={agregarActivo}>Agregar</button>
-
-Se ejecuta una función cuando el usuario interactúa.
-
-Generalmente se actualiza el estado.
-
-11. Formularios Controlados
-<input
-  value={nombre}
-  onChange={(e) => setNombre(e.target.value)}
-/>
-
-El valor del input depende del estado.
-
-Cada cambio actualiza la información almacenada.
-
-12. Ciclo de Renderizado
-
-React vuelve a renderizar cuando:
-
-Cambia el estado.
-
-Cambian las props.
-
-No recarga toda la página, solo actualiza lo necesario.
-
-13. Justificación Técnica
-
-La arquitectura basada en componentes permite:
-
-Organización estructurada.
-
-Reutilización de código.
-
-Escalabilidad.
-
-Mantenimiento eficiente.
-
-14. Conclusión
-
-El proyecto está desarrollado bajo buenas prácticas de React y arquitectura modular.
-
-Se comprende:
-
-La conexión entre index.html y main.tsx.
-
-El funcionamiento del componente principal App.
-
-El uso de estado (useState).
-
-El uso de props.
-
-El renderizado dinámico.
+El proyecto fue desarrollado aplicando buenas prácticas de React y arquitectura modular. Se comprendió el uso de componentes, estado, props y renderizado dinámico dentro de una aplicación moderna.
