@@ -1,190 +1,170 @@
-TechSupport Pro — Soporte Técnico Empresarial
+PrimeTech Support Services
+Documentación Técnica
 1. Información General
 
 Nombre del Proyecto: TechSupport Pro
-Estudiante: Miguel Nava
-Fecha: 2026
-Curso: Desarrollo Web
+Tecnología Principal: React
+Entorno de Desarrollo: Vite
+Objetivo: Gestión y visualización de activos tecnológicos.
 
-2. Descripción del Proyecto
+La aplicación permite administrar información de equipos como laptops, monitores y otros dispositivos asignados mediante una arquitectura basada en componentes.
 
-TechSupport Pro es una landing page profesional desarrollada para promocionar servicios de soporte técnico empresarial.
+2. Tecnologías Utilizadas
 
-El proyecto presenta soluciones tecnológicas como:
+React
 
-Auditoría de infraestructura IT
-
-Gestión de activos tecnológicos (CMDB)
-
-Seguridad informática
-
-Soporte remoto 24/7
-
-Problema que soluciona
-
-Muchas empresas no cuentan con una plataforma clara y profesional para ofrecer sus servicios tecnológicos.
-Esta landing permite presentar los servicios de forma moderna, clara y estructurada.
-
-Público objetivo
-
-Empresas pequeñas y medianas
-
-Negocios que necesitan soporte técnico externo
-
-Organizaciones que desean modernizar su infraestructura IT
-
-3. Tecnologías Utilizadas
-
-Este proyecto fue desarrollado con tecnologías modernas del ecosistema frontend:
-
-HTML5
-
-React 18
-
-TypeScript
+JavaScript / TypeScript
 
 Vite
 
-Tailwind CSS
+HTML5
 
-shadcn/ui
+CSS / Tailwind CSS
 
-Radix UI
+Node.js
 
-React Router DOM
+3. Arquitectura del Proyecto
 
-React Hook Form
+El proyecto sigue una arquitectura basada en componentes.
 
-Zod
+Flujo de ejecución:
 
-Lucide React
+index.html contiene el contenedor principal.
 
-Recharts
+main.tsx conecta React con el DOM.
 
-Git
+App.tsx organiza la aplicación.
 
-GitHub
+Los componentes renderizan la interfaz.
 
 4. Estructura del Proyecto
-/proyecto
- ├── index.html
- ├── package.json
- ├── src/
- │    ├── main.tsx
- │    ├── App.tsx
- │    ├── components/
- │    ├── pages/
- │    ├── hooks/
- │    └── styles/
- ├── public/
- └── tailwind.config.js
-Explicación
+TechSupport-Pro
+│
+├── public/                # Recursos estáticos
+├── src/
+│   ├── components/        # Componentes reutilizables
+│   ├── pages/             # Vistas principales
+│   ├── App.tsx            # Componente principal
+│   └── main.tsx           # Punto de entrada
+│
+└── README.md              # Documentación del proyecto
+5. Componentes
 
-index.html → Archivo base que carga la aplicación React.
+Un componente en React es una función que retorna JSX.
 
-main.tsx → Punto de entrada principal de React.
+function Header() {
+  return <h1>Gestión de Activos</h1>
+}
 
-App.tsx → Componente raíz de la aplicación.
+Características:
 
-components/ → Componentes reutilizables.
+Son reutilizables.
 
-pages/ → Páginas principales del sitio.
+Permiten dividir la aplicación en partes pequeñas.
 
-hooks/ → Lógica reutilizable con React Hooks.
+Mejoran la organización del código.
 
-public/ → Recursos estáticos.
+6. JSX
 
-package.json → Configuración del proyecto y dependencias.
+JSX permite escribir HTML dentro de JavaScript.
 
-tailwind.config.js → Configuración de estilos con Tailwind.
+<p>Equipo asignado: {activo}</p>
 
-5. Funcionalidades
+Las llaves {} permiten insertar código JavaScript.
 
-Página principal informativa con presentación de servicios.
+React transforma JSX en funciones internas.
 
-Diseño completamente responsivo (móvil, tablet y desktop).
+7. Manejo de Estado (useState)
 
-Navegación entre secciones utilizando React Router.
+El estado permite manejar información dinámica.
 
-Componentes UI modernos usando shadcn y Radix UI.
+const [activos, setActivos] = useState([])
 
-Formularios con validación utilizando React Hook Form y Zod.
+activos almacena la información actual.
 
-Optimización de rendimiento con Vite.
+setActivos actualiza el estado.
 
-Íconos profesionales usando Lucide React.
+Cuando el estado cambia, React vuelve a renderizar el componente.
 
-6. Capturas de Pantalla
+8. Props
 
-Crear una carpeta llamada:
+Las props permiten enviar información entre componentes.
 
-/screenshots
+<ActivoCard nombre="Laptop HP" />
 
-Agregar mínimo 3 imágenes:
+function ActivoCard({ nombre }) {
+  return <p>{nombre}</p>
+}
 
-/screenshots
- ├── inicio.png
- ├── servicios.png
- └── contacto.png
+Son de solo lectura.
 
-Luego agregarlas aquí así:
+Permiten reutilizar componentes con distintos datos.
 
-![Inicio](screenshots/inicio.png)
-![Servicios](screenshots/servicios.png)
-![Contacto](screenshots/contacto.png)
-7. Cómo Ejecutar el Proyecto
+9. Renderizado Dinámico
 
-Clonar el repositorio:
+React permite renderizar listas usando map().
 
-git clone URL_DEL_REPOSITORIO
+{activos.map((activo, index) => (
+  <ActivoCard key={index} nombre={activo.nombre} />
+))}
 
-Entrar a la carpeta:
+map() recorre el arreglo.
 
-cd nombre-del-proyecto
+key permite identificar cada elemento.
 
-Instalar dependencias:
+Optimiza el proceso de renderizado.
 
-npm install
+10. Manejo de Eventos
+<button onClick={agregarActivo}>Agregar</button>
 
-Ejecutar el proyecto:
+Se ejecuta una función cuando el usuario interactúa.
 
-npm run dev
+Generalmente se actualiza el estado.
 
-Abrir en el navegador:
+11. Formularios Controlados
+<input
+  value={nombre}
+  onChange={(e) => setNombre(e.target.value)}
+/>
 
-http://localhost:5173
-8. Scripts Disponibles
+El valor del input depende del estado.
 
-npm run dev → Ejecuta en desarrollo
+Cada cambio actualiza la información almacenada.
 
-npm run build → Genera versión de producción
+12. Ciclo de Renderizado
 
-npm run preview → Previsualiza producción
+React vuelve a renderizar cuando:
 
-npm run test → Ejecuta pruebas
+Cambia el estado.
 
-9. Mejoras Futuras
+Cambian las props.
 
-Conexión con backend real
+No recarga toda la página, solo actualiza lo necesario.
 
-Sistema de autenticación
+13. Justificación Técnica
 
-Panel administrativo
+La arquitectura basada en componentes permite:
 
-Integración con base de datos
+Organización estructurada.
 
-Implementación de modo oscuro dinámico
+Reutilización de código.
 
-10. Uso de Inteligencia Artificial
+Escalabilidad.
 
-Durante el desarrollo del proyecto se utilizaron herramientas de IA como apoyo para:
+Mantenimiento eficiente.
 
-Generación de ideas
+14. Conclusión
 
-Mejora de estilos CSS
+El proyecto está desarrollado bajo buenas prácticas de React y arquitectura modular.
 
-Optimización de código
+Se comprende:
 
-Creación de documentación
+La conexión entre index.html y main.tsx.
 
-El código fue revisado y comprendido completamente antes de su implementación.)
+El funcionamiento del componente principal App.
+
+El uso de estado (useState).
+
+El uso de props.
+
+El renderizado dinámico.
